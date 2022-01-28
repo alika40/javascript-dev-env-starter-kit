@@ -1,0 +1,9 @@
+body {
+  font-family: sans-serif;
+  color: blueviolet;
+  font-size: 3rem;
+}
+
+table th {
+  padding: 5px;
+}
