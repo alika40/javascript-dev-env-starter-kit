@@ -1,4 +1,6 @@
 import path from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+
 
 export default {
   mode: "development",
@@ -9,7 +11,12 @@ export default {
     publicPath: "/",
     filename: "bundle.js",
   },
-  plugins: [],
+  plugins: [
+    // Creates HTML file that includes reference to bundle.js
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
+  ],
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },

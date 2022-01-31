@@ -1,9 +1,13 @@
 body {
   font-family: sans-serif;
+}
+
+h1 {
   color: blueviolet;
   font-size: 3rem;
+  text-align: center;
 }
 
 table th {
-  padding: 5px;
+  padding: 10px;
 }

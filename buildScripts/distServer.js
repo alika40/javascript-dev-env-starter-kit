@@ -1,26 +1,24 @@
 import express from 'express';
 import path from 'path';
 import open from 'open';
-import webpack from 'webpack';
-import config from '../webpack.config.dev';
+import compressiom from 'compression';
 
 /* eslint-disable no-console */
 
 const port = 4000;
 const app = express();
-const compiler = webpack(config);
 
 
-app.use( require('webpack-dev-middleware') (compiler, { publicPath: config.output.publicPath }) );
+app.use(compressiom());
+app.use(express.static('dist'));
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../src/index.html'));
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 
 app.get('/users', (req, res) => {
-  // Hardcoded production api for simplicity
   res.json(
     [
       {"id": 1, "firstName": "John", "lastName": "Doe", "email": "johndoe@example.com"},
